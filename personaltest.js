@@ -37,6 +37,5 @@ function add() {
 
     input.value = "";
 
-
 }
 
