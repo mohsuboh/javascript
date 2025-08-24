@@ -2,7 +2,7 @@ function add() {
     const input = document.getElementById("userinput");
     let text = input.value;
     if (text === "") {
-        alert("Please enter some text!");
+        window.alert("Please enter some text!");
         return;
     }
     const newdiv = document.createElement("div");
@@ -38,4 +38,3 @@ function add() {
     input.value = "";
 
 }
-
