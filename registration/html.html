@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>registration</title>
+    <link rel="stylesheet" href="/registration/css.css" />
+  </head>
+  <body>
+    <div class="allpage">
+      <div class="page">
+        <h1>Create your account</h1>
+        <form id="registration-form" name="registration-form">
+          <div class="name-grid">
+            <div class="fname">
+              <label for="fname">First name </label>
+              <input
+                type="text"
+                name="fname"
+                placeholder="First name"
+                id="fname"
+              />
+              <span id="fnamewarning" style="color: red; display: none">First name is required</span>
+            </div>
+            <div class="lname"> 
+              <label for="lname">Last name</label>
+              <input
+                type="text"
+                name="lname"
+                placeholder="Last name"
+                id="lname"
+              />
+              <span id="lnamewarning" style="color: red; display: none">Last name is required </span>
+            </div>
+          </div>
+          <div class="email">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="you@gmail.com"
+              id="email"
+            />
+            <span id="emailwarning" style="color: red; display: none">Enter a valid email </span>
+          </div>
+          <div class="phonenumber">
+            <label for="phonenumber">Phone (optional)</label>
+            <input
+              type="tel"
+              name="phonenumber"
+              placeholder="+962 7xxxxxxxx"
+              ,
+              part="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+            />
+          </div>
+          <div class="passworconfirm">
+            <div class="password">
+              <label for="password">password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="at least 8 charcters"
+                id="password"
+              />
+              <span id="passwordwarning" style="color: red; display: none"> Password must be at least 8 charcters
+            </span>
+              <span id="warningMessage" class="warningMessage" style="color: red; display: none"> not match !</span>
+            </div>
+            <div class="passconfirm">
+              <label for="passconfirm">Confirm</label>
+              <input type="password" name="passconfirm" id="passconfirm" />
+              <span id="passconfirmwarning" style="color: red; display: none">
+              </span>
+            </div>
+          </div>
+          <div class="country">
+            <label for="country">country</label>
+          </div>
+          <select name="country" id="country" required>
+            <option value="JORDAN">JORDAN</option>
+            <option value="PALESTINE">PALESTINE</option>
+            <option value="SYRIA">SYRIA</option>
+            <option value="LEBANON">LEBANON</option>
+            <option value="IRAQ">IRAQ</option>
+            <option value="EGYPT">EGYPT</option>
+          </select>
+          <div class="term">
+            <input type="checkbox" id="term" />I agree to the terms & privacy
+            policey
+            <span id="termwarning" style="color: red; display: none">You must agree to the terms </span>
+          </div>
+          <div class="create">
+            <input type="submit" value="Create account" name="CreateAccount" />
+          </div>
+          <div class="login">
+            <p class="paragraph">
+              Already have an account?&nbsp
+              <a href="/registration/login.html">Log in</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/registration/javascript.js"></script>
+  </body>
+</html>
