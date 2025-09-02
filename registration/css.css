@@ -43,12 +43,14 @@ h1 {
     color: #e5e7eb
 }
 
+
 input {
     border-radius: 8px;
     height: 40px;
     margin-bottom: 10px;
     background-color: #0b1223;
     border: ridge, 1px, #9aa4b242;
+    color: #e5e7eb;
     
 }
 
@@ -138,8 +140,9 @@ input {
 
 }
 
-input[name="CreateAccount"] {
+.CreateAccount {
     border: none;
+    border-radius: 8px;
     cursor: pointer;
     color: #fff;
     font-size: 16px;
@@ -147,6 +150,16 @@ input[name="CreateAccount"] {
     height: 40px;
     background: linear-gradient(90deg, #4f46e5, #7c3aed);
 
+}
+input[type="submit"]
+{
+    border: none;
+  cursor:pointer; 
+
+  color: #fff; 
+  font-size: 16px;
+  font-weight: bold;
+    background: linear-gradient(90deg,#4f46e5, #7c3aed);
 }
 
 .invalid .invalid-msg {
@@ -158,6 +171,11 @@ input[name="CreateAccount"] {
     font-weight: 200;
     color: red;
     /* display: none; */
+}
+.span
+{
+    cursor: pointer;
+    text-decoration: underline;
 }
 .term
 {

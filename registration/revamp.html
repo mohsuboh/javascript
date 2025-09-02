@@ -5,12 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>registration</title>
     <link rel="stylesheet" href="/registration/css.css" />
+
+    <style>
+        .login-form, .registration-form {
+            display: none;
+        }
+
+        .page.login .login-form {
+            display: flex
+;
+    flex-direction: column;
+        }
+        .page.registration .registration-form {
+            display: flex
+;
+    flex-direction: column;
+        }
+
+
+    </style>
   </head>
   <body>
     <div class="allpage">
-      <div class="page">
-        <h1>Create your account</h1>
-        <form  id="registration-form" name="registration-form">
+      <div id="container" class="page registration">
+          <form class="registration-form" id="registration-form" name="registration-form">
+            <h1>Create your account</h1>
           <div class="name-grid">
             <div class="fname">
               <label for="fname">First name </label>
@@ -98,21 +117,33 @@
             <option value="EGYPT">EGYPT</option>
           </select>
           <div class="term">
-            <input type="checkbox" id="term" />I agree to the terms & privacy
+            <input type="checkbox" name="term" id="term" />I agree to the terms & privacy
             policey
             <span id="termwarning" style="color: red; display: none">You must agree to the terms </span>
           </div>
           <div class="create">
-            <button  name="CreateAccount" >
+            <button  class="CreateAccount" >
                 Create account
             </button>
           </div>
           <div class="login">
             <p class="paragraph">
               Already have an account?&nbsp
-              <a href="/registration/login.html">Log in</a>
+              <span  class="span" onclick="loginForm()" >Log in</span>
             </p>
           </div>
+        </form>
+
+        <form class="login-form" id="login-form">
+                <h1>Login to your account </h1>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="emailuser" placeholder="you@gmail.com">
+                <label for="password">Password</label>
+                <input type="password" id="passworduser" placeholder="At least 8 characters" name="password">
+                <input type="submit" value="login">
+                <p>Don't have an account? &nbsp 
+                    <span class = "span" onclick="createuraccount()"> Creat account</span>
+                    </p>
         </form>
       </div>
     </div>

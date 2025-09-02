@@ -41,34 +41,9 @@
 //         console.log("hii")
 
 //     }
-// }  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// }
 
 // const firstname = document.getElementsByName("fname")
-
-
-
 
 // const form = document.getElementById('registration-form');
 
@@ -83,11 +58,7 @@
 //     passconfirm.value=''
 // )
 
-
 //     if (password === passconfirm) {
-
-        
-
 
 //         alert("faild!")
 //     }
@@ -97,35 +68,6 @@
 //         alert("sucsses!")
 //     }
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // document.addEventListener('DOMContentLoaded', function () {
 //     const form = document.getElementById('registration-form');
@@ -150,10 +92,8 @@
 //             lnameInput.style.borderColor = 'red';
 //             warningMessage.style.display = 'block';
 //         } else if (emailInput.value.trim() === '') {
-//             emailInput.style.borderColor = 'red';
+//             xInput.style.borderColor = 'red';
 //             warningMessage.style.display = 'block';
-
-
 
 //         } else if (passInput.value.trim() === '') {
 //             passInput.style.borderColor = 'red';
@@ -181,13 +121,6 @@
 //         console.log('Form submitted successfully!');
 //     });
 // });
-
-
-
-
-
-
-
 
 // document.addEventListener('DOMContentLoaded', function () {
 //     const form = document.getElementById('registration-form');
@@ -237,75 +170,178 @@
 //     });
 // });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // regex !!!imporant!!!
 
+//  document.getElementById('registration-form').addEventListener('submit' , submit)
 
+//  function submit(event)
+// {
 
+//     event.preventDefault()
+//     const fields = document.querySelectorAll('input');
+//     // document.querySelectorAll('.invalid-msg').forEach(i=>i.remove())
 
- document.getElementById('registration-form').addEventListener('submit' , submit)
+//     fields.forEach(i=>{
+//         i.parentElement.querySelector('.invalid-msg')?.remove()
+//         let msg = null
+//         if(!i.value){
+//             // i.parentElement.classList.add('invalid')
+//             msg =  i.dataset.msg || `The ${i.name} is required`
+//         }
 
+//         if(i.dataset.min && i.value.length < i.dataset.min){
+//             msg = `The ${i.name} atleast ${i.dataset.min}`
+//         }
 
+//         if(i.dataset.minval && i.value < i.dataset.minval){
+//             msg = `The ${i.name} atleast ${i.dataset.minval}`
+//         }
 
- function submit(event)
-{
+//         if(i.dataset.match){
+//             const match = document.querySelector(i.dataset.match)
+//             if(i.value != match.value){
+//                 msg = `The ${i.name} dose not match ${match.name}`
+//             }
+//         }
 
-    event.preventDefault()
-    const fields = document.querySelectorAll('input');
-    // document.querySelectorAll('.invalid-msg').forEach(i=>i.remove())
-    
-    fields.forEach(i=>{
-        i.parentElement.querySelector('.invalid-msg')?.remove()
-        let msg = null
-        if(!i.value){
-            // i.parentElement.classList.add('invalid')
-            msg =  i.dataset.msg || `The ${i.name} is required`
-        }
+//         if(msg)
+//         {
+//             const span = document.createElement('span')
+//             span.className  = 'invalid-msg'
+//             span.innerText = msg
+//             i.parentElement.append(span)
+//         }
 
-        if(i.dataset.min && i.value.length < i.dataset.min){
-            msg = `The ${i.name} atleast ${i.dataset.min}`
-        }
-        
-        if(i.dataset.minval && i.value < i.dataset.minval){
-            msg = `The ${i.name} atleast ${i.dataset.minval}`
-        }
+//     }
 
-        if(i.dataset.match){
-            const match = document.querySelector(i.dataset.match)
-            if(i.value != match.value){
-                msg = `The ${i.name} dose not match ${match.name}`
-            }
-        }
+// )
 
-        if(msg)
-        {
-            const span = document.createElement('span')
-            span.className  = 'invalid-msg'
-            span.innerText = msg
-            i.parentElement.append(span)
-        }
-    })
+//     formdata={};
+//     fields.forEach(field => {
+//         formdata[field.name]=field.value
+//     }
+//     )
+//     const jsondata=JSON.stringify(formdata)
+//     localStorage.setItem('formdata',jsondata)
+//     alert("data saved!")
 
+// }
 
-    alert('sbmit')
+function createuraccount() {
+  const c = document.getElementById("container");
+  c.classList.remove("login");
+  c.classList.add("registration");
+}
+
+function loginForm() {
+  const c = document.getElementById("container");
+  c.classList.remove("registration");
+  c.classList.add("login");
 }
 
 
+document.getElementById("registration-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    // document.querySelectorAll(".invalid-msg").forEach((i) => i.remove());
+    const fields = document.querySelectorAll("#registration-form input");
+
+    let isFormValid = true;
+
+    fields.forEach((i) => {
+      i.parentElement.querySelector(".invalid-msg")?.remove();
+      let msg = [];
+
+      if (!i.value) {
+        msg.push(i.dataset.msg || `The ${i.name} is required`);
+      }
+
+      if (i.dataset.min && i.value.length < i.dataset.min) {
+        msg.push(`The ${i.name} atleast ${i.dataset.min}`);
+      }
+
+      if (i.dataset.minval && i.value < i.dataset.minval) {
+        msg.push(`The ${i.name} atleast ${i.dataset.minval}`);
+      }
+
+      if (i.dataset.match) {
+        const match = document.querySelector(i.dataset.match);
+        if (i.value != match.value) {
+          msg.push(`The ${i.name} dose not match ${match.name}`);
+        }
+      }
+
+      if (msg.length) {
+        msg.forEach((y) => {
+          const span = document.createElement("span");
+          span.className = "invalid-msg";
+          span.innerText = y;
+          i.parentElement.append(span);
+        });
+        isFormValid = false;
+      }
+    });
+
+    if (isFormValid) {
+      const formdata = {};
+      fields.forEach((field) => {
+        formdata[field.name] = field.value;
+      });
+
+      // destructor with except
+      const { passconfirm, term, ...data } = formdata;
+
+      const jsondata = JSON.stringify(data);
+      localStorage.setItem("formdata", jsondata);
+      alert("Data saved successfully!");
+    } else {
+      alert("Please fix the validation errors before submitting.");
+    }
+  });
+
+document.getElementById("login-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const emailuser = document.getElementById("emailuser").value;
+  const passworduser = document.getElementById("passworduser").value;
+  const storedData = localStorage.getItem("formdata");
+    if (storedData) {
+    const registeredUser = JSON.parse(storedData);
+
+    if (emailuser == registeredUser.email && passworduser== registeredUser.password) {
+      alert("Sign-in successful!");
+    } else {
+      alert("Invalid email or password. Please try again.");
+    }
+  } else {
+    alert("No user data found. Please register first.");
+  }
+
+});
 
 
+
+
+
+// document.getElementById("login-form").addEventListener("submit", (event) => {
+//   event.preventDefault();
+
+//   const signinEmail = document.getElementById("signin-email").value;
+//   const signinPassword = document.getElementById("signin-password").value;
+
+//   const storedData = localStorage.getItem("formdata");
+
+//   if (storedData) {
+//     const registeredUser = JSON.parse(storedData);
+
+//     if (signinEmail === registeredUser.email && signinPassword === registeredUser.password) {
+//       alert("Sign-in successful!");
+//       // Here you would redirect the user to a new page or perform other actions
+//     } else {
+//       alert("Invalid email or password. Please try again.");
+//     }
+//   } else {
+//     alert("No user data found. Please register first.");
+//   }
+// });
 
 // document.addEventListener('DOMContentLoaded', function() {
 //     const form = document.getElementById('registration-form')
@@ -349,7 +385,6 @@
 //             isValid = false
 //         }
 
-
 //         console.log(passwordInput.value)
 //         console.log(passconfirmInput.value)
 //         if ( passwordInput.value !== passconfirmInput.value) {
@@ -363,8 +398,7 @@
 //         //     passconfirmInput.style.borderColor = 'red'
 //         //     isValid = false
 //         // }
-        
-        
+
 //         if (isValid) {
 //         alert('Form submitted successfully!')
 //     }
